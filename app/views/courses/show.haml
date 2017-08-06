@@ -3,6 +3,13 @@
 %p
   %strong Title:
   = @course.title
+  %br
+
+  %strong Groups:
+  - @course.groups.each do |group|
+    =group.name
+
+
 = link_to 'Edit', edit_course_path(@course)
 |
 = link_to 'Back', courses_path
