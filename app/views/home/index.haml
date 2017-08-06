@@ -1,0 +1,16 @@
+%h1 Course list
+
+%ol
+  -@courses.each do |course|
+    %li
+      = course.title
+      = link_to 'Edit', edit_course_path(course)
+      = link_to 'Show', course_path(course)
+
+%h1 Group list
+
+%ol
+  -@groups.each do |group|
+    %li
+      = group.name
+      = link_to 'Edit', edit_group_path(group)

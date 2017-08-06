@@ -1,0 +1,21 @@
+= form_for(course) do |f|
+  - if course.errors.any?
+    #error_explanation
+    %h2
+      = pluralize(course.errors.count, "error")
+    prohibited this course from being saved:
+    %ul
+      - course.errors.full_messages.each do |message|
+        %li= message
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    -Group.all.each do |group|
+      =check_box_tag 'course[group_ids][]', group.id, @course.group_ids.include?(group.id)
+      -#=check_box_tag :group_ids, group.id, params[:group_ids].try(:include?, group.id)
+      =label_tag group.name
+      %br
+
+  .actions
+    = f.submit
