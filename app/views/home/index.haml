@@ -1,16 +1,30 @@
-%h1 Course list
+.container
+  %h2 Course list
 
-%ol
-  -@courses.each do |course|
-    %li
-      = course.title
-      = link_to 'Edit', edit_course_path(course)
-      = link_to 'Show', course_path(course)
+  %ol
+    -@courses.each do |course|
+      %li
+        = course.title
+        = link_to 'Edit', edit_course_path(course)
+        = link_to 'Show', course_path(course)
 
-%h1 Group list
+  %hr
 
-%ol
-  -@groups.each do |group|
-    %li
-      = group.name
-      = link_to 'Edit', edit_group_path(group)
+  %h2 Group list
+
+  %ol
+    -@groups.each do |group|
+      %li
+        = group.name
+        = link_to 'Edit', edit_group_path(group)
+        = link_to 'Show', group_path(group)
+
+  %hr
+
+  %h2 User list
+  %ol
+    -@users.each do |user|
+      %li
+        = user.email
+        = link_to 'Edit', edit_group_path(user)
+        = link_to 'Show', group_path(user)

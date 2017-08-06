@@ -15,7 +15,10 @@
       =hidden_field_tag 'course[group_ids][]', nil
       =label_tag group.name, group.name
       =check_box_tag 'course[group_ids][]', group.id, @course.group_ids.include?(group.id), id: group.name
-      -#=check_box_tag :group_ids, group.id, params[:group_ids].try(:include?, group.id)
+      -User.where(group_id:group.id).each do |user|
+        =hidden_field_tag 'course[user_ids][]', nil
+        =label_tag user.email, user.email
+        =check_box_tag 'course[user_ids][]', user.id, @course.user_ids.include?(user.id), id: user.email
 
       %br
 

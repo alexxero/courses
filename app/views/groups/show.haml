@@ -1,0 +1,24 @@
+%p#notice= notice
+%p
+%strong
+  Name:
+  = @group.name
+
+%br
+
+%strong
+  Users:
+  %ul
+    - @users.each do |user|
+      %li= user.email
+
+%br
+
+%strong
+  Courses appointed:
+  -@courses.each do |course|
+    %li= course.title
+
+= link_to 'Edit', edit_group_path(@group)
+|
+= link_to 'Back', groups_path

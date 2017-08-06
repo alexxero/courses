@@ -10,6 +10,8 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @users = User.where(group_id: params[:id])
+    @courses = Course.includes(:groups).where(groups: {id: params[:id]} )
   end
 
   # GET /groups/new
