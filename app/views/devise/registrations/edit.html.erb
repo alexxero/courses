@@ -1,3 +1,15 @@
+<h2>Group:</h2>
+<%= resource.group.name %>
+<br>
+
+<h2>Courses:</h2>
+<ul>
+  <% courses = resource.group.courses | resource.courses %>
+  <% courses.each do |course|%>
+    <li><%= course.title %></li>
+  <%end%>
+</ul>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
