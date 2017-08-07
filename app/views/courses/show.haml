@@ -8,6 +8,11 @@
   %strong Groups:
   - @course.groups.each do |group|
     =group.name
+    %br
+
+  %strong Users:
+  - @course.users.each do |user|
+    =user.email
 
 
 = link_to 'Edit', edit_course_path(@course)
