@@ -13,7 +13,7 @@
   .field
     -Group.all.each do |group|
       =hidden_field_tag 'course[group_ids][]', nil
-      =label_tag group.name, group.name
+      =label_tag group.name, group.name, style: 'font-weight:bold'
       =check_box_tag 'course[group_ids][]', group.id, @course.group_ids.include?(group.id), id: group.name
       -User.where(group_id:group.id).each do |user|
         =hidden_field_tag 'course[user_ids][]', nil
