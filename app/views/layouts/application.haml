@@ -7,16 +7,18 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = link_to 'Main page', root_path
+    %p= link_to 'Main page', root_path
 
 
     - if current_user
       You are logged as:
-      =current_user.email
-      %li= link_to 'profile', edit_user_registration_path
-      %li= link_to 'logout', destroy_user_session_path, method: 'delete'
+      =link_to current_user.email, edit_user_registration_path
+      |
+      = link_to 'logout', destroy_user_session_path, method: 'delete'
+
     - else
-      %li= link_to 'login', new_user_session_path
-      %li= link_to 'sign up', new_user_registration_path
+      = link_to 'login', new_user_session_path
+      |
+      = link_to 'sign up', new_user_registration_path
 
     = yield
